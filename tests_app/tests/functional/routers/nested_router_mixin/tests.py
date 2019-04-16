@@ -23,7 +23,7 @@ class NestedRouterMixinTestBehaviourBase(APITestCase):
         self.groups = {
             'users': GroupModel.objects.create(id=3, name='users'),
             'admins': GroupModel.objects.create(id=4, name='admins'),
-            'super_admins': GroupModel.objects.create(id=5, name='super_admins'),
+            'super_admins': GroupModel.objects.create(id=5, name='sup_admins'),
         }
         self.permissions = {
             'read': PermissionModel.objects.create(id=6, name='read'),
@@ -413,7 +413,7 @@ class NestedRouterMixinTestBehaviour__parent_viewset_lookup(APITestCase):
         self.groups = {
             'users': GroupModel.objects.create(id=3, name='users'),
             'admins': GroupModel.objects.create(id=4, name='admins'),
-            'super_admins': GroupModel.objects.create(id=5, name='super_admins'),
+            'super_admins': GroupModel.objects.create(id=5, name='sup_admins'),
         }
 
         # add groups to users

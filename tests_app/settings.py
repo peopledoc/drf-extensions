@@ -15,9 +15,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'drf_extensions',
-        'TEST_CHARSET': 'utf8',
+        'USER': os.environ.get('DJANGO_DB_USER', os.environ.get('USER')),
+        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', ''),
     },
 }
 
@@ -143,7 +144,8 @@ AUTH_USER_MODEL = 'auth.User'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 NOSE_ARGS = [
-    '--processes=%s' % multiprocessing.cpu_count(),
+# multiprocess does not work with nose runner & posgresql backend
+#    '--processes=%s' % multiprocessing.cpu_count(),
     '--process-timeout=100',
     '--nocapture',
 ]
